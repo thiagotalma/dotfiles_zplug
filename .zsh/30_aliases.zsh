@@ -10,7 +10,6 @@ alias zshrc='$EDITOR ~/.zshrc'
 alias t='tail -f'
 alias dud='du -d 1 -h'
 alias duf='du -sh *'
-alias fd='bfs . -type d -name'
 alias ff='bfs . -type f -name'
 alias h='history'
 alias help='man'
@@ -23,12 +22,6 @@ alias relogin='exec $SHELL -l'
 alias u='builtin cd ..'
 alias md='mkdir -p'
 alias rd='rmdir'
-
-# brew
-alias brews='brew list -1'
-alias bubo='brew update && brew outdated'
-alias bubc='brew upgrade && brew cleanup'
-alias bubu='bubo && bubc'
 
 # bundler
 alias be='bundle exec'

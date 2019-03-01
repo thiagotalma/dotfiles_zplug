@@ -16,7 +16,7 @@ setopt equals
 zstyle ':completion:*' use-cache true　                     # apt-getとかdpkgコマンドをキャッシュを使って速くする
 
 ### Complement ###
-autoload -U compinit; compinit
+
 setopt auto_list                                            # 補完候補を一覧で表示する(d)
 setopt auto_menu                                            # 補完キー連打で補完候補を順に表示する(d)
 setopt list_packed                                          # 補完キー連打で順に補完候補を自動で補完
