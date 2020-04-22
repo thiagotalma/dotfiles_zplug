@@ -24,11 +24,6 @@ else
     load_zplugin
 fi
 
-for f in ~/.zsh/[0-9]*.(sh|zsh)
-do
-  source "$f"
-done
-
 # ===== zplugin > Utilities =====
 
 # zsh
@@ -76,11 +71,17 @@ zplugin snippet PZT::modules/utility/init.zsh
 # enhancd
 zplugin ice pick"init.sh"; zplugin light 'b4b4r07/enhancd'
 
+# zsh-history-substring-search
+zplugin light zsh-users/zsh-history-substring-search
+
 # Load the pure theme, with zsh-async library that's bundled with it
 zplugin ice pick"async.zsh" src"pure.zsh"; zplugin light sindresorhus/pure
 
 # fzf
 zplugin ice from"gh-r" as"program"; zplugin load junegunn/fzf-bin
+
+# forgit
+zplugin light wfxr/forgit
 
 # ripgrep
 zplugin ice from"gh-r" as"program" bpick"*64*linux*" mv"ripgrep* -> ripgrep" pick"ripgrep/rg"; zplugin light BurntSushi/ripgrep
@@ -94,8 +95,20 @@ zplugin ice from"gh-r" as"program" mv"fd* -> fd" pick"fd/fd"; zplugin light shar
 #bat
 zplugin ice from"gh-r" as"program" bpick"*x86_64*linux*musl*" pick"*bat*/bat"; zplugin light sharkdp/bat
 
+#lazydocker
+zplugin ice from"gh-r" as"program" bpick"*Linux_x86_64*" pick"*lazydocker*/lazydocker"; zplugin light jesseduffield/lazydocker
+
+#pup
+zplugin ice from"gh-r" as"program" bpick"*linux_amd64*"; zplugin light ericchiang/pup
+
+# exa
+zplugin ice from"gh-r" as"program" bpick"*linux*" mv"*exa* -> exa"; zplugin light ogham/exa
+
 #fselect - Find files with SQL-like queries
 zplugin ice from"gh-r" as"program" bpick"*x86_64*linux*musl*" mv"fselect-* -> fselect"; zplugin light jhspetersson/fselect
+
+# jq-zsh-plugin
+zplugin light reegnz/jq-zsh-plugin
 
 # fzf
 if (( $+commands[fzf] )); then
@@ -110,17 +123,14 @@ if (( $+commands[fzf] )); then
   #bindkey '\eOB' fzf-history-widget
 fi
 
-# zsh-completions
-zplugin ice lucid wait"0" blockf; zplugin light zsh-users/zsh-completions
-
 # zsh-autosuggestions
 zplugin ice lucid wait"0" atload"_zsh_autosuggest_start"; zplugin light zsh-users/zsh-autosuggestions
 
-# zsh-history-substring-search
-zplugin ice lucid wait"0"; zplugin light zsh-users/zsh-history-substring-search
+# zsh-completions
+zplugin ice lucid wait"0" blockf; zplugin light zsh-users/zsh-completions
 
 # fast-syntax-highlighting
-zplugin ice lucid wait"10" atinit"zpcompinit; zpcdreplay"; zplugin light zdharma/fast-syntax-highlighting
+zplugin ice lucid wait"5" atinit"zpcompinit; zpcdreplay"; zplugin light zdharma/fast-syntax-highlighting
 
 #zprof
 
@@ -132,6 +142,11 @@ function chpwd() {
     fi
   fi
 }
+
+for f in ~/.zsh/[0-9]*.(sh|zsh)
+do
+  source "$f"
+done
 
 # load local configurations
 [[ -e ~/.local.sh ]] && source ~/.local.sh

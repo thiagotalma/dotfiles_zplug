@@ -30,4 +30,6 @@ bindkey '^[[1;3C'   forward-word
 bindkey '^[[5C'     forward-word
 
 bindkey '^[[A'      history-substring-search-up
+bindkey '\eOA'      history-substring-search-up
 bindkey '^[[B'      history-substring-search-down
+bindkey '\eOB'      history-substring-search-down

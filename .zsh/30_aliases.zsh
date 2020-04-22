@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 
 # override
-alias vim='nvim'
-alias ls="ls -AFG" # カラー表示
+alias ls="ls -AFG"
+alias la="exa -la --group-directories-first --time-style=iso"
 
 # common-aliases
 alias ll='ls -ltr'
